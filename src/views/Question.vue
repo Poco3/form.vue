@@ -6,7 +6,7 @@
         <h1 class="title is-6 has-text-centered panel-heading mb-0">以下にお答えください</h1>
         <div>
           <dt
-            v-for="questiondata in health_confirmation"
+            v-for="questiondata in health_Confirmation"
             v-bind:key="questiondata.id"
             class="has-text-info"
           >{{ questiondata.question1 }}</dt>
@@ -19,7 +19,7 @@
           <br />
           <div v-if="question.answer1 !== ''">
             <dt
-              v-for="questiondata in health_confirmation"
+              v-for="questiondata in health_Confirmation"
               v-bind:key="questiondata.id"
               class="has-text-info"
             >{{ questiondata.question2 }}</dt>
@@ -32,7 +32,7 @@
           <br />
           <div v-if="question.answer2 !== ''">
             <dt
-              v-for="questiondata in health_confirmation"
+              v-for="questiondata in health_Confirmation"
               v-bind:key="questiondata.id"
               class="has-text-info"
             >{{ questiondata.question3 }}</dt>
@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { question_List } from "../store/question";
+
 export default {
   data() {
     return {
@@ -62,11 +64,12 @@ export default {
         answer2: "",
         answer3: "",
       },
+      question_List,
     };
   },
   computed: {
-    health_confirmation() {
-      return this.$store.state.health_confirmation;
+    health_Confirmation() {
+      return this.question_List.health_Confirmation;
     },
   },
 };
