@@ -32,7 +32,7 @@
           <br />
           <div v-if="question.answer2 !== ''">
             <dt
-              v-for="questiondata in health_Confirmation"
+              v-for="questiondata in health_confirmation"
               v-bind:key="questiondata.id"
               class="has-text-info"
             >{{ questiondata.question3 }}</dt>
