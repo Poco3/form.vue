@@ -6,18 +6,29 @@
       <br />
       <div class="has-text-info">-ご相談内容-</div>
       <br />
-      <textarea></textarea>
+      <textarea v-model="keyword"></textarea>
       <br />
     </div>
     <div class="has-text-centered">
       <router-link to="/Question" class="button is-primary mr-6">前へ戻る</router-link>
-      <router-link to="/#" class="button is-primary">次へ進む</router-link>
+      <router-link to="/answer" class="button is-primary">次へ進む</router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    keyword: {
+      get() {
+        return this.$store.getters.keyword;
+      },
+      set(value) {
+        this.$store.dispatch("commitKeyword", value);
+      },
+    },
+  },
+};
 </script>
 
 <style>
